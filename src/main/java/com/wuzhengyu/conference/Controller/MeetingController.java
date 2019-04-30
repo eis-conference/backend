@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.wuzhengyu.conference.Model.Meeting;
 import com.wuzhengyu.conference.Model.User;
+import com.wuzhengyu.conference.Model.User_meeting;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
@@ -16,6 +17,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 @RestController
 @Api(value = "Meeting Controller", description = "对Meeting对象的操作", tags = "Meeting")
@@ -53,6 +57,38 @@ public class MeetingController {
         logger.info("hhh:"+rst);
 
         return rst;
+    }
+
+    @ApiOperation(value="getRecommendedMeetings", notes="Get recommended meetings")
+    @ResponseBody
+    @RequestMapping(value = "/getRecommendedMeetings/{user_id}", method = RequestMethod.GET)
+    public List<Meeting> getAllUser(@PathVariable("user_id") Integer user_id )
+    {
+        String url = "http://47.103.7.215:8080/Entity/U1a72d5104e6d9/Conference/Meeting/";
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<Object> re =
+                restTemplate.exchange(url,
+                        HttpMethod.GET, null, new ParameterizedTypeReference<Object>() {
+                        });
+        Object rst = re.getBody();
+        Map<String, List<Meeting>> map = (Map<String,List<Meeting>>)rst;
+        Logger logger = LoggerFactory.getLogger(User_meetingController.class);
+        List<Meeting> meeting_list = map.get("Meeting");
+        String url_user = "http://47.103.7.215:8080/Entity/U1a72d5104e6d9/Conference/User/" + user_id;
+        ResponseEntity<User> rt = restTemplate.getForEntity(url_user, User.class);
+        User user = rt.getBody();
+        List<Meeting> ret_list = new ArrayList<>();
+        int count = 0;
+        for (Meeting meeting: meeting_list){
+            if (count > 9){
+                break;
+            }
+            if(meeting.getTheme() == user.getInterest()){
+                ret_list.add(meeting);
+                count++;
+            }
+        }
+        return ret_list;
     }
 
     @ApiOperation(value="getMeeting", notes="Get a meeting")

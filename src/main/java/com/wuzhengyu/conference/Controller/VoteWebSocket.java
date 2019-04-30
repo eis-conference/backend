@@ -5,9 +5,6 @@ import com.wuzhengyu.conference.Model.VoteSocketMsg;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-
 import javax.websocket.*;
 import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
@@ -25,8 +22,6 @@ public class VoteWebSocket {
 
     @OnOpen
     public void openSession(@PathParam("username") String username, Session session) {
-
-
         clients.put(username, session);
         String message = "meeting id: " + username;
         logger.info(message);
@@ -44,10 +39,9 @@ public class VoteWebSocket {
             if (socketMsg.getType() == 0) {
                 sendMessageAll("vote");
             }
-            //单聊.需要找到发送者和接受者.
+            //投票者发的
             else{
                 sendMessage(clients.get(socketMsg.getToUser()), socketMsg.getMsg());
-                //sendMessage(clients.get(username), "[" + username + "]" + "-> [" + socketMsg.getToUser() + "] : " + socketMsg.getMsg());
             }
         }
         catch (IOException e) {
@@ -59,8 +53,6 @@ public class VoteWebSocket {
     public void onClose(@PathParam("username") String username, Session session) {
         //当前的Session 移除
         clients.remove(username);
-        //并且通知其他人当前用户已经离开聊天室了
-        sendMessageAll("用户[" + username + "] 已经离开聊天室了！");
         try {
             session.close();
         } catch (IOException e) {
@@ -77,8 +69,6 @@ public class VoteWebSocket {
         }
         throwable.printStackTrace();
     }
-
-
 
     private static void sendMessageAll(String message) {
         clients.forEach((sessionId, session) -> sendMessage(session, message));

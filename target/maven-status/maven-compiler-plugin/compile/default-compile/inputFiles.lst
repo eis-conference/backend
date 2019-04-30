@@ -1,12 +1,14 @@
-/Users/wuzhengyu/Desktop/conference/src/main/java/com/wuzhengyu/conference/Controller/VoteWebSocket.java
+/Users/wuzhengyu/Desktop/conference/src/main/java/com/wuzhengyu/conference/Model/User_meeting.java
 /Users/wuzhengyu/Desktop/conference/src/main/java/com/wuzhengyu/conference/WebSocketConfig.java
 /Users/wuzhengyu/Desktop/conference/src/main/java/com/wuzhengyu/conference/Controller/VoteController.java
 /Users/wuzhengyu/Desktop/conference/src/main/java/com/wuzhengyu/conference/Controller/UserController.java
-/Users/wuzhengyu/Desktop/conference/src/main/java/com/wuzhengyu/conference/Controller/MeetingController.java
 /Users/wuzhengyu/Desktop/conference/src/main/java/com/wuzhengyu/conference/Model/User.java
 /Users/wuzhengyu/Desktop/conference/src/main/java/com/wuzhengyu/conference/Controller/Swagger2.java
+/Users/wuzhengyu/Desktop/conference/src/main/java/com/wuzhengyu/conference/Model/Meeting.java
+/Users/wuzhengyu/Desktop/conference/src/main/java/com/wuzhengyu/conference/Controller/User_meetingController.java
+/Users/wuzhengyu/Desktop/conference/src/main/java/com/wuzhengyu/conference/Controller/VoteWebSocket.java
+/Users/wuzhengyu/Desktop/conference/src/main/java/com/wuzhengyu/conference/Controller/MeetingController.java
 /Users/wuzhengyu/Desktop/conference/src/main/java/com/wuzhengyu/conference/Model/VoteSocketMsg.java
 /Users/wuzhengyu/Desktop/conference/src/main/java/com/wuzhengyu/conference/filter.java
-/Users/wuzhengyu/Desktop/conference/src/main/java/com/wuzhengyu/conference/Model/Meeting.java
 /Users/wuzhengyu/Desktop/conference/src/main/java/com/wuzhengyu/conference/ConferenceApplication.java
 /Users/wuzhengyu/Desktop/conference/src/main/java/com/wuzhengyu/conference/Model/Vote.java

@@ -11,6 +11,15 @@ public class Meeting {
     private String date;
     private String status;
     private String host_name;
+    private String theme;
+
+    public String getTheme() {
+        return theme;
+    }
+
+    public void setTheme(String theme) {
+        this.theme = theme;
+    }
 
     public String getHost_name() {
         return host_name;

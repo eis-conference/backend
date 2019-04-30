@@ -5,6 +5,17 @@ public class User {
     private String username;
     private String password;
     private String type;
+    private String interest;
+
+    public String getInterest() {
+        return interest;
+    }
+
+    public void setInterest(String interest) {
+        this.interest = interest;
+    }
+
+
 
     public long getUser_id() {
         return user_id;

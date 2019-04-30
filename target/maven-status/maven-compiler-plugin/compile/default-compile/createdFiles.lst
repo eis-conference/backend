@@ -1,4 +1,5 @@
 com/wuzhengyu/conference/Controller/Swagger2.class
+com/wuzhengyu/conference/Model/User_meeting.class
 com/wuzhengyu/conference/Controller/VoteController$1.class
 com/wuzhengyu/conference/Controller/UserController.class
 com/wuzhengyu/conference/Model/User.class
@@ -11,6 +12,8 @@ com/wuzhengyu/conference/WebSocketConfig.class
 com/wuzhengyu/conference/Controller/VoteWebSocket.class
 com/wuzhengyu/conference/ConferenceApplication.class
 com/wuzhengyu/conference/Controller/UserController$1.class
+com/wuzhengyu/conference/Controller/User_meetingController$1.class
 com/wuzhengyu/conference/Model/VoteSocketMsg.class
 com/wuzhengyu/conference/Controller/VoteController.class
+com/wuzhengyu/conference/Controller/User_meetingController.class
 com/wuzhengyu/conference/Controller/MeetingController$1.class
